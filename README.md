@@ -52,3 +52,9 @@ head_detector_vgg16 = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])    
 hf2 = h1+h2
 ```
 - if backbone is vggnet, please modify trainer.py and head_detector1.py
+
+## Acknowledgement
+
+This work builds on many of the excellent works:
+- [FCHD-Fully-Convolutional-Head-Detector](https://github.com/aditya-vora/FCHD-Fully-Convolutional-Head-Detector) by Aditya Vora
+
