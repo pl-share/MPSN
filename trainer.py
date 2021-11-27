@@ -38,17 +38,11 @@ class Head_Detector_Trainer(nn.Module):
         img_size = (H, W)
         x=imgs
         x2 = imgs2
-        #h1 = self.head_detector.left_vgg(x)
+        h1=self.head_detector.vgg(x)
         h2 = self.head_detector.left_add(x2)
-        #h2 = self.head_detector.left_add(x2)
-        h3=self.head_detector.vgg(x)
-
-        #hf1 = h1 + h2
-
-        #h3 = self.head_detector.extractor(hf1)
-        h4 = self.head_detector.addnet(h2)
-        #hf2=h3+h4
-        hf2 = t.mul(h3, t.sigmoid(h4)) + h4
+        h3 = self.head_detector.addnet(h2)
+        # hf2=h1+h3
+        hf2 = t.mul(h1, t.sigmoid(h3)) + h3
         features = hf2
         rpn_locs, rpn_scores, rois, rois_scores, anchor = self.head_detector.rpn(features, img_size, scale)
         bbox = bboxs[0]
