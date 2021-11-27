@@ -28,10 +28,11 @@ python eval.py
 
 |        model        | test ap | Anchor scale | pertrained model |
 | :-----------------: | :-----: | :----------: | :--------------: |
-|  flow mob DFA+APC   |  0.790  |    [2,4]     |       True       |
-| diff mob DFA=+ +APC |  0.838  |    [2,4]     |       True       |
-| diff resnet DFA+APC |  0.802  |    [2,4]     |       True       |
-|  diff vgg DFA+APC   |  0.824  |    [8,16]    |       True       |
+|  flow mob DFA  |  0.790  |    [2,4]     |       True       |
+| diff mob DFA=+|  0.838  |    [2,4]     |       True       |
+| diff resnet DFA|  0.802  |    [2,4]     |       True       |
+|  diff vgg DFA  |  0.824  |    [8,16]    |       True       |
+|diff Vvgg DFA=+ |0.857|[8,16]|True|
 
 - Download model from the following [link](https://drive.google.com/drive/folders/14M5tHUYqraaNP2GmxDYGED4ja91pSR2J?usp=sharing).
 
@@ -44,4 +45,10 @@ from trainer import Head_Detector_Trainer   #line 15
 head_detector_vgg16 = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])    #line 142													 #line 142
 #head_detector_vgg16 = mob(ratios=[1], anchor_scales=[2,3])     #line 143
 ```
+- if you choose DFA=+ +APC , please modify train_or.py and head_detector.py
 
+```python
+#hf2 = t.mul(h1, t.sigmoid(h2)) + h2
+hf2 = h1+h2
+```
+- if backbone is vggnet, please modify trainer.py and head_detector1.py
