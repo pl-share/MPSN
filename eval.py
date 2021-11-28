@@ -13,7 +13,7 @@ from sklearn.metrics import average_precision_score, precision_recall_curve, rec
 
 from src.head_detector_vgg16 import Head_Detector_VGG16
 #from trainer import Head_Detector_Trainer
-from src.head_mobilnetv3 import mob
+from src.head_backbone import mob
 from train_or import Head_Detector_Trainer
 
 from src.config import opt

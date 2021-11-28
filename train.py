@@ -11,7 +11,7 @@ import argparse
 import cv2
 from sklearn.metrics import average_precision_score, precision_recall_curve, recall_score
 
-from src.head_mobilnetv3 import mob
+from src.head_backbone import mob
 from train_or import Head_Detector_Trainer
 from src.config import opt
 import src.utils as utils
