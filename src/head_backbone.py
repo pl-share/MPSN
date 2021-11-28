@@ -56,10 +56,10 @@ class mob(Head_Detector):
 
     def __init__(self, ratios=[0.5, 1, 2], anchor_scales=[8, 16, 32]):
 
-        addnet = right_res()
-        left_vgg = left_res()
+        addnet = right_mob()
+        left_vgg = left_mob()
         rpn = RegionProposalNetwork(
-            256, 256,
+            96, 256,
             ratios=ratios,
             anchor_scales=anchor_scales,
             feat_stride=self.feat_stride
