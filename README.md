@@ -42,8 +42,8 @@ python eval.py
 from src.head_detector_vgg16 import Head_Detector_VGG16 #line 14
 from trainer import Head_Detector_Trainer   #line 15
 
-head_detector_vgg16 = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])    #line 142													 #line 142
-#head_detector_vgg16 = mob(ratios=[1], anchor_scales=[2,3])     #line 143
+head_detector_mpsn = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])    #line 142													 #line 142
+#head_detector_mpsn = mob(ratios=[1], anchor_scales=[2,3])     #line 143
 ```
 - if you choose DFA=+ +APC , please modify train_or.py and head_detector.py
 

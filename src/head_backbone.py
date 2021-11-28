@@ -46,7 +46,7 @@ def right_res():
     features = [model.conv1,model.bn1,model.relu,model.maxpool,model.layer1,model.layer2,model.layer3]
     return nn.Sequential(*features)
 
-class mob(Head_Detector):
+class mpsn(Head_Detector):
     """ Head detector based on VGG16 model.
     Have two components:
         1) Fixed feature extractor from the conv_5 layer of the VGG16
@@ -56,15 +56,15 @@ class mob(Head_Detector):
 
     def __init__(self, ratios=[0.5, 1, 2], anchor_scales=[8, 16, 32]):
 
-        addnet = right_mob()
-        left_vgg = left_mob()
+        addnet = right_res()
+        left_vgg = left_res()
         rpn = RegionProposalNetwork(
-            96, 256,
+            256, 256,
             ratios=ratios,
             anchor_scales=anchor_scales,
             feat_stride=self.feat_stride
         )
-        super(mob, self).__init__(
+        super(mpsn, self).__init__(
             addnet,
             left_vgg,
             rpn

@@ -11,7 +11,7 @@ import argparse
 import cv2
 from sklearn.metrics import average_precision_score, precision_recall_curve, recall_score
 
-from src.head_backbone import mob
+from src.head_backbone import mpsn
 from train_or import Head_Detector_Trainer
 from src.config import opt
 import src.utils as utils
@@ -149,10 +149,10 @@ def train():
     test_dataloader = data_.DataLoader(test_dataset, batch_size=1, shuffle=True, num_workers=1)
     # Initialize the head detector.
     scales1 = [1, 2, 4]
-    head_detector_vgg16 = mob(ratios=[1], anchor_scales=[1, 2, 4])
+    head_detector_mpsn = mpsn(ratios=[1], anchor_scales=[1, 2, 4])
     print("model construct completed")
 
-    trainer = Head_Detector_Trainer(head_detector_vgg16).cuda()
+    trainer = Head_Detector_Trainer(head_detector_mpsn).cuda()
     lr_ = opt.lr
     test_ap = []
     val_ap = []
@@ -170,8 +170,8 @@ def train():
             img2 = img2.cuda()
             img, img2, bbox = Variable(img), Variable(img2), Variable(bbox)
             _, _, _ = trainer.train_step(img, img2, bbox, scale)
-        val_Corr = round(eval(val_dataloader, head_detector_vgg16), 3)
-        test_Corr = round(eval(test_dataloader, head_detector_vgg16), 3)
+        val_Corr = round(eval(val_dataloader, head_detector_mpsn), 3)
+        test_Corr = round(eval(test_dataloader, head_detector_mpsn), 3)
         test_ap.append(test_Corr)
         val_ap.append(val_Corr)
         ep.append(epoch)

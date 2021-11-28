@@ -13,7 +13,7 @@ from sklearn.metrics import average_precision_score, precision_recall_curve, rec
 
 from src.head_detector_vgg16 import Head_Detector_VGG16
 #from trainer import Head_Detector_Trainer
-from src.head_backbone import mob
+from src.head_backbone import mpsn
 from train_or import Head_Detector_Trainer
 
 from src.config import opt
@@ -139,15 +139,15 @@ def main():
     val_dataloader = data_.DataLoader(val_dataset, batch_size=1, shuffle=True, num_workers=1)
     test_dataloader = data_.DataLoader(test_dataset, batch_size=1, shuffle=True, num_workers=1)
     # Initialize the head detector.
-    #head_detector_vgg16 = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])
-    head_detector_vgg16 = mob(ratios=[1], anchor_scales=[2,4])
+    #head_detector_mpsn = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])
+    head_detector_mpsn = mpsn(ratios=[1], anchor_scales=[2, 4])
     print("model construct completed")
 
 
-    trainer = Head_Detector_Trainer(head_detector_vgg16).cuda()
+    trainer = Head_Detector_Trainer(head_detector_mpsn).cuda()
     trainer.load("./checkpoints/output/diff resnet DFA+APC")
-    #avg_test_CorrLoc = eval(val_dataloader, head_detector_vgg16)
-    test_Corr = eval(test_dataloader, head_detector_vgg16)
+    #avg_test_CorrLoc = eval(val_dataloader, head_detector_mpsn)
+    test_Corr = eval(test_dataloader, head_detector_mpsn)
     print("  test average corrLoc accuracy:\t\t{:.3f}".format(test_Corr))
 
 if __name__ == "__main__":
