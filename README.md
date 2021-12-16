@@ -27,7 +27,7 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 
 ## Datasets
 
-- Download the restaurant dataset from the following [link](https://drive.google.com/drive/folders/1NBfgT20ePGDk2iW5aF_T61-yIvwEKvfd). Unzip it and store the dataset in the `data/ `folder
+- Download the restaurant dataset from the following [link](https://drive.google.com/drive/folders/1NBfgT20ePGDk2iW5aF_T61-yIvwEKvfd). Unzip it and store the dataset in the `data/ `folder, You can also change the data set loading path by modifying src/config.py.
 
 - RGBdata-flow.zip : The original and light flow images
 
