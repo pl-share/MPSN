@@ -38,7 +38,7 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 ## Eval
 
 - Download model from the following [link](https://drive.google.com/drive/folders/14M5tHUYqraaNP2GmxDYGED4ja91pSR2J?usp=sharing).
-- Store the head detection model in checkpoints/ folder.
+- Store the head detection model in checkpoints/output/ folder.
 - Run the following python command from the root folder.
 
 ```Bash
