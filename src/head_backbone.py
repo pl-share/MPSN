@@ -22,13 +22,13 @@ def right_mob():
 
 def left_vgg16():
     model=vgg16(pretrained=False)
-    model.load_state_dict(t.load(opt.caffe_pretrain_path))
+    #model.load_state_dict(t.load(opt.caffe_pretrain_path))
     features = list(model.features)[0:30]
     return nn.Sequential(*features)
 
 def right_vgg16():
     model = vgg16(pretrained=False)
-    model.load_state_dict(t.load(opt.caffe_pretrain_path))
+    #model.load_state_dict(t.load(opt.caffe_pretrain_path))
     features = list(model.features)[0:30]
     return nn.Sequential(*features)
 
