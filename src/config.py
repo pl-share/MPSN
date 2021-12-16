@@ -2,8 +2,8 @@ from pprint import pprint
 
 class Config:
     #brainwash_dataset_root_path = '/mnt/disk1/liup/data/train/brainwash_raw'
-    brainwash_dataset_root_path ='/mnt/disk1/liup/FCHD-liup/data/brainwash_raw'
-    RGBdata_dataset_root_path='/mnt/disk1/liup/FC1/data/RGBdata'
+    brainwash_dataset_root_path ='./data/brainwash_raw'
+    RGBdata_dataset_root_path='./data/RGBdata_diff'
     min_size = 600  # image resize
     max_size = 1000 # image resize 
     caffe_pretrain = True
