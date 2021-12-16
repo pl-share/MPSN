@@ -1,11 +1,12 @@
 from pprint import pprint
 
+
 class Config:
-    #brainwash_dataset_root_path = '/mnt/disk1/liup/data/train/brainwash_raw'
-    brainwash_dataset_root_path ='./data/brainwash_raw'
-    RGBdata_dataset_root_path='./data/RGBdata_diff'
+    # brainwash_dataset_root_path = '/mnt/disk1/liup/data/train/brainwash_raw'
+    brainwash_dataset_root_path = './data/brainwash_raw'
+    RGBdata_dataset_root_path = './data/RGBdata_diff'
     min_size = 600  # image resize
-    max_size = 1000 # image resize 
+    max_size = 1000  # image resize
     caffe_pretrain = True
     caffe_pretrain_path = './pretrained_model/vgg16_caffe.pth'
     model_save_path = './checkpoints/output'
@@ -23,9 +24,10 @@ class Config:
     pretrained_model = 'vgg16'
 
     epoch = 50
-    
-    use_adam = False # Use Adam optimizer
-    use_chainer = False # try match everything as chainer
+
+    use_adam = False  # Use Adam optimizer
+    use_chainer = False  # try match everything as chainer
+
     def _parse(self, kwargs):
         state_dict = self._state_dict()
         for k, v in kwargs.items():
@@ -40,4 +42,6 @@ class Config:
     def _state_dict(self):
         return {k: getattr(self, k) for k, _ in Config.__dict__.items() \
                 if not k.startswith('_')}
+
+
 opt = Config()
