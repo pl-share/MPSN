@@ -17,7 +17,7 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
   ```
 - install numpy
 
-##Installation
+## Installation
  1. Install pytorch
  2. Clone this repository
   ```bash
