@@ -12,19 +12,14 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 - RGBdata_diff.zip : The original and frame-difference images
 
 
-## Training
 
-```Bash
-python train.py
-```
 
 ## Eval
 
-```Bash
-python eval.py
-```
 
 ​	Restaurant datasets model
+
+- Download model from the following [link](https://drive.google.com/drive/folders/14M5tHUYqraaNP2GmxDYGED4ja91pSR2J?usp=sharing).
 
 |        model        | test ap | Anchor scale | pertrained model |
 | :-----------------: | :-----: | :----------: | :--------------: |
@@ -32,9 +27,8 @@ python eval.py
 | diff mob DFA=+|  0.838  |    [2,4]     |       True       |
 | diff resnet DFA|  0.802  |    [2,4]     |       True       |
 |  diff vgg DFA  |  0.824  |    [8,16]    |       True       |
-|diff Vvgg DFA=+ |0.857|[8,16]|True|
+|diff vgg DFA=+ |0.857|[8,16]|True|
 
-- Download model from the following [link](https://drive.google.com/drive/folders/14M5tHUYqraaNP2GmxDYGED4ja91pSR2J?usp=sharing).
 
 - If you load 'diff vgg DFA+APC',  please modify eval.py
 
@@ -52,6 +46,11 @@ head_detector_mpsn = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])    #
 hf2 = h1+h2
 ```
 - If backbone is vggnet, please modify trainer.py and head_detector1.py simultaneously
+## Training
+
+```Bash
+python train.py
+```
 
 ## Acknowledgement
 
