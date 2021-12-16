@@ -94,7 +94,7 @@ def eval(dataloader, head_detector):
     return AP / test_img_num
 
 
-def main():
+def main(args):
     # Get the dataset
     for phase in phases:
         if phase == 'train':
@@ -145,10 +145,14 @@ def main():
 
 
     trainer = Head_Detector_Trainer(head_detector_mpsn).cuda()
-    trainer.load("./checkpoints/output/diff resnet DFA+APC")
+    trainer.load(args.model_path)
     #avg_test_CorrLoc = eval(val_dataloader, head_detector_mpsn)
     test_Corr = eval(test_dataloader, head_detector_mpsn)
     print("  test average corrLoc accuracy:\t\t{:.3f}".format(test_Corr))
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser('Set MPSN', add_help=False)
+    parser.add_argument('--model_path', type=str,default='./checkpoints/output/diff resnet DFA+APC')
+    args = parser.parse_args()
+
+    main(args)
