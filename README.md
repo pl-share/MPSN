@@ -13,7 +13,7 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 - install cupy, you can install via 
 
   ```bash
-  pip install cupy-cuda111
+  pip install cupy-cuda101
   ```
 - install numpy
 
