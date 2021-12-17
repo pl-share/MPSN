@@ -22,10 +22,10 @@ from src.bbox_tools import bbox_iou
 import matplotlib.pyplot as plt
 
 plt.switch_backend('agg')
-dataset_name = 'brainwash'
+dataset_name = 'RGBdata'
 phases = ['train', 'val', 'test']
 data_check_flag = False
-torch.cuda.set_device(2)
+#torch.cuda.set_device(2)
 
 
 def save(trainer):
@@ -148,8 +148,8 @@ def train():
     val_dataloader = data_.DataLoader(val_dataset, batch_size=1, shuffle=True, num_workers=1)
     test_dataloader = data_.DataLoader(test_dataset, batch_size=1, shuffle=True, num_workers=1)
     # Initialize the head detector.
-    scales1 = [1, 2, 4]
-    head_detector_mpsn = mpsn(ratios=[1], anchor_scales=[1, 2, 4])
+    scales1 = [4,8]
+    head_detector_mpsn = mpsn(ratios=[1], anchor_scales=scales1)
     print("model construct completed")
 
     trainer = Head_Detector_Trainer(head_detector_mpsn).cuda()
@@ -201,7 +201,7 @@ def train():
 
 
 
-    name = 'mob diff DFA+APC brainwash '
+    name = 'resnet diff DFA+APC RGBdata '
     title = name + ' Anchor_scales {:} AP '.format(scales1)
     log_tmp = title + 'best_test_ap:\t{:.3f}\n'.format(best_test)
     log.append(log_tmp)
