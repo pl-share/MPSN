@@ -15,7 +15,10 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
   ```bash
   pip install cupy-cuda101
   ```
-- install numpy
+- install 
+  ```bash
+  pip install -r requiremets.txt
+  ```
 
 ## Installation
  1. Install pytorch
