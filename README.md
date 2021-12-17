@@ -32,9 +32,9 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 
 - Download the restaurant dataset from the following [link](https://drive.google.com/drive/folders/1NBfgT20ePGDk2iW5aF_T61-yIvwEKvfd). Unzip it and store the dataset in the `data/ `folder, You can also change the data set loading path by modifying src/config.py.
 
-- RGBdata-flow.zip : The original and light flow images
+- RGBdata-flow.zip : The original and optical flow images
 
-- RGBdata_diff.zip : The original and frame difference images
+- RGBdata_diff.zip : The original and frame-difference images
 
 
 
@@ -42,7 +42,7 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 
 - Download model from the following [link](https://drive.google.com/drive/folders/14M5tHUYqraaNP2GmxDYGED4ja91pSR2J?usp=sharing).
 - Store the head detection model in checkpoints/output/ folder.
-- if you want to eval other model,you should modify head_backbone.py 
+- if you want to eval other model,you should modify head_backbone.py simultaneously
 
 ```python 
         addnet = right_res()  #line 59
@@ -65,7 +65,7 @@ python eval.py --model_path <model_path>
 |  diff vgg DFA  |  0.824  |    [8,16]    |       True       |
 |diff vgg DFA=+ |0.857|[8,16]|True|
 
-- if you load 'diff vgg DFA+APC',  please modify eval.py
+- If you load 'diff vgg DFA+APC',  please modify eval.py
 
 ```python
 from src.head_detector_vgg16 import Head_Detector_VGG16 #line 14
@@ -74,13 +74,13 @@ from trainer import Head_Detector_Trainer   #line 15
 head_detector_mpsn = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])    #line 142					
 #head_detector_mpsn = mob(ratios=[1], anchor_scales=[2,3])     #line 143
 ```
-- if you choose DFA=+ +APC , please modify train_or.py and head_detector.py
+- If you choose DFA=+ +APC , please modify train_or.py and head_detector.py simultaneously
 
 ```python
 #hf2 = t.mul(h1, t.sigmoid(h2)) + h2
 hf2 = h1+h2
 ```
-- if backbone is vggnet, please modify trainer.py and head_detector1.py
+- If backbone is vggnet, please modify trainer.py and head_detector1.py simultaneously
 
 ## Training 
 ```Bash
@@ -88,6 +88,6 @@ python train.py
 ```
 ## Acknowledgement
 
-This work builds on many of the excellent works:
+This work builds on the excellent work:
 - [FCHD-Fully-Convolutional-Head-Detector](https://github.com/aditya-vora/FCHD-Fully-Convolutional-Head-Detector) by Aditya Vora
 
