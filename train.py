@@ -25,7 +25,7 @@ plt.switch_backend('agg')
 dataset_name = 'RGBdata'
 phases = ['train', 'val', 'test']
 data_check_flag = False
-#torch.cuda.set_device(2)
+torch.cuda.set_device(0)
 
 
 def save(trainer):
