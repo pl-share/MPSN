@@ -1,0 +1,8 @@
+ipdb
+numpy
+opencv-python
+sklearn
+scipy
+scikit-image
+torchnet
+matplotlib
