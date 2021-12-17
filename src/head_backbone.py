@@ -6,17 +6,16 @@ from src.region_proposal_network import RegionProposalNetwork
 from src.head_detector import Head_Detector
 from src.config import opt
 
-
 def left_mob():
-    model = mobilenet_v2(pretrained=False,norm_layer=nn.InstanceNorm2d)
-    #model = mobilenet_v2(pretrained=True)
+    #model = mobilenet_v2(pretrained=False,norm_layer=nn.InstanceNorm2d)
+    model = mobilenet_v2(pretrained=True)
     features = list(model.features)[0:14]
     return nn.Sequential(*features)
 
 
 def right_mob():
-    model = mobilenet_v2(pretrained=False,norm_layer=nn.InstanceNorm2d)
-    #model = mobilenet_v2(pretrained=True)
+    #model = mobilenet_v2(pretrained=False,norm_layer=nn.InstanceNorm2d)
+    model = mobilenet_v2(pretrained=True)
     features = list(model.features)[0:14]
     return nn.Sequential(*features)
 
@@ -34,8 +33,8 @@ def right_vgg16():
 
 def left_res():
     '''
-    brainwash: pretrained=False,norm_layer=nn.InstanceNorm2d
-    restaurant: pretrained=True
+    brainwash: resnet(pretrained=False,norm_layer=nn.InstanceNorm2d)
+    restaurant: renet18(pretrained=True)
     '''
     model = resnet18(pretrained=True)
     features = [model.conv1,model.bn1,model.relu,model.maxpool,model.layer1,model.layer2,model.layer3]
