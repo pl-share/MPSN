@@ -15,14 +15,14 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
   ```bash
   pip install cupy-cuda101
   ```
-- install 
-  ```bash
-  pip install -r requiremets.txt
-  ```
 
 ## Installation
  1. Install pytorch
- 2. Clone this repository
+ 2. Install 
+  ```bash
+  pip install -r requiremets.txt
+  ```
+ 3. Clone this repository
   ```bash
   git clone https://github.com/pl-share/MPSN
   ```
@@ -42,18 +42,18 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 
 - Download model from the following [link](https://drive.google.com/drive/folders/14M5tHUYqraaNP2GmxDYGED4ja91pSR2J?usp=sharing).
 - Store the head detection model in checkpoints/output/ folder.
-- Run the following python command from the root folder.
-
-```Bash
-python eval.py --model_path <model_path>
-```
-
 - if you want to eval other model,you should modify head_backbone.py 
 
 ```python 
         addnet = right_res()  #line 59
         left_vgg = left_res() #line 60
 ```
+- Run the following python command from the root folder.
+
+```Bash
+python eval.py --model_path <model_path>
+```
+
 
 ​	Restaurant datasets model
 
@@ -71,7 +71,7 @@ python eval.py --model_path <model_path>
 from src.head_detector_vgg16 import Head_Detector_VGG16 #line 14
 from trainer import Head_Detector_Trainer   #line 15
 
-head_detector_mpsn = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])    #line 142													 #line 142
+head_detector_mpsn = Head_Detector_VGG16(ratios=[1], anchor_scales=[8, 16])    #line 142					
 #head_detector_mpsn = mob(ratios=[1], anchor_scales=[2,3])     #line 143
 ```
 - if you choose DFA=+ +APC , please modify train_or.py and head_detector.py
@@ -82,8 +82,7 @@ hf2 = h1+h2
 ```
 - if backbone is vggnet, please modify trainer.py and head_detector1.py
 
-## Training
-
+## Training 
 ```Bash
 python train.py
 ```
