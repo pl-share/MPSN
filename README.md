@@ -2,7 +2,7 @@
 Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detection
 
 ## Dependencies
-- The code is tested on Ubuntu 20.04.2,python 3.8.
+- The code is tested on Ubuntu 20.04.2,python 3.8,cuda 10.1.
 
 - install torch version 
 
