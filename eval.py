@@ -152,7 +152,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser('Set MPSN', add_help=False)
-    parser.add_argument('--model_path', type=str,default='./checkpoints/output/diff resnet DFA+APC')
+    parser.add_argument('--model_path', type=str,default='./checkpoints/output/diff resnet DFA')
     args = parser.parse_args()
 
     main(args)
