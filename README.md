@@ -7,7 +7,7 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 - install torch version 
 
   ```bash
-  pip install torch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0
+  pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
   ```
 
 - install cupy, you can install via 
@@ -18,19 +18,20 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 
 ## Installation
  1. Install pytorch
- 2. Install 
-  ```bash
-  pip install -r requirements.txt
-  ```
- 3. Clone this repository
+
+ 2. Clone this repository
   ```bash
   git clone https://github.com/pl-share/MPSN
+  ```
+ 3. Install 
+  ```bash
+  pip install -r requirements.txt
   ```
   
 
 ## Datasets
 
-- Download the restaurant dataset from the following [link](https://drive.google.com/drive/folders/1NBfgT20ePGDk2iW5aF_T61-yIvwEKvfd). Unzip it and store the dataset in the `data/ `folder, You can also change the data set loading path by modifying src/config.py.
+- Download the restaurant dataset from the following [link](https://drive.google.com/drive/folders/1EwtLHDjDje7LAScokQqn3UzbHyezKQbS?usp=sharing). Unzip it and store the dataset in the `data/ `folder, You can also change the data set loading path by modifying src/config.py.
 
 - RGBdata-flow.zip : The original and optical flow images
 
