@@ -58,15 +58,15 @@ class mpsn(Head_Detector):
         addnet = right_res()
         left_vgg = left_res()
         rpn = RegionProposalNetwork(
-            '''
-            mob : 96
-            res : 256
-            '''
             256, 256,
             ratios=ratios,
             anchor_scales=anchor_scales,
             feat_stride=self.feat_stride
         )
+        '''
+        mob : 96
+        res : 256
+        '''
         super(mpsn, self).__init__(
             addnet,
             left_vgg,
