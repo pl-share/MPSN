@@ -48,6 +48,7 @@ Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detecti
 ```python 
         addnet = right_res()  #line 59
         left_vgg = left_res() #line 60
+        in_channel = 256      #mob:96 res:256
 ```
 - Run the following python command from the root folder.
 
