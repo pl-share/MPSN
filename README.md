@@ -1,6 +1,16 @@
 # MPSN
-Code for MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detection
+Code for [MPSN: Motion-aware Pseudo Siamese Network for Indoor Video Head Detection](https://www.sciencedirect.com/science/article/pii/S036013232200587X)
 
+
+
+
+
+
+ <img src="mpsn.jpg" width="100%">
+
+ [Paper](https://www.sciencedirect.com/science/article/pii/S036013232200587X)
+
+ 
 ## Dependencies
 - The code is tested on Ubuntu 20.04.2,python 3.8,cuda 10.1.
 
@@ -88,6 +98,30 @@ hf2 = h1+h2
 ```Bash
 python train.py
 ```
+
+## Citation
+
+Please refer to the following bibtex to cite.
+
+```
+@article{SUN2022109354,
+         title = {MPSN: Motion-aware Pseudo-Siamese Network for indoor video head detection in buildings},
+         journal = {Building and Environment},
+         volume = {222},
+         pages = {109354},
+         year = {2022},
+         issn = {0360-1323},
+         doi = {https://doi.org/10.1016/j.buildenv.2022.109354},
+         author = {Kailai Sun and Xiaoteng Ma and Peng Liu and Qianchuan Zhao}
+}
+```
+
+
+
+## Contact Us
+
+If you have other questions❓, please contact us in time 👬
+
 ## Acknowledgement
 
 This work builds on the excellent work:
